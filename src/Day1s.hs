@@ -1,24 +1,10 @@
-{-# LANGUAGE OverloadedStrings #-}
+module Day1s (part2) where
 
-module Day1 (part1, part2) where
-
-import Data.Char (digitToInt, isDigit, toLower)
-import Data.List (head, last)
+import Data.Char (toLower)
 import Text.Regex.TDFA ((=~))
 
-filename :: FilePath
 filename = "./data/day01.txt"
-
-nums :: String -> [Int]
-nums = map digitToInt . filter isDigit
-
-pack :: (Int, Int) -> Int
 pack (a, b) = read $ show a ++ show b
-
-firstAndLast :: [Int] -> Int
-firstAndLast arr = pack (head arr, last arr)
-
-readInt :: String -> Int
 readInt word = case map toLower word of
     "one" -> 1
     "two" -> 2
@@ -38,23 +24,12 @@ search transform input = case (transform input =~ ("[0-9]|" ++ transform reNumbe
   [] -> 0
   match -> readInt $ transform match
 
-searchFirst :: String -> Int
 searchFirst = search id
-
-searchLast :: String -> Int
 searchLast = search reverse
-
-firstAndLast' :: String -> Int
-firstAndLast' input = pack (searchFirst input, searchLast input)
-
-part1 :: IO ()
-part1 = do
-    lines <- lines <$> readFile filename
-    let total = sum $ map (firstAndLast . nums) lines
-    putStrLn $ "Sum: " ++ show total
+firstAndLast input = pack (searchFirst input, searchLast input)
 
 part2 :: IO ()
 part2 = do
     lines <- lines <$> readFile filename
-    let total = sum $ map firstAndLast' lines
+    let total = sum $ map firstAndLast lines
     putStrLn $ "Sum: " ++ show total
