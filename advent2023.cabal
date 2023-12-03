@@ -58,7 +58,7 @@ common warnings
     ghc-options: -Wall
 
 library
-    exposed-modules:  Day1, Day1s
+    exposed-modules:  Day1, Day1s, Day2, Day2s
 
     -- Modules included in this library but not exported.
     -- other-modules:
@@ -68,13 +68,13 @@ library
     build-depends:    array
                     , base ^>=4.17.2.0
                     , bytestring
-                    -- , containers
+                    , containers
                     , lens
                     -- , megaparsec
                     -- , monad-logger
                     -- , parser-combinators
                     , raw-strings-qq
-                    -- , regex-base
+                    , regex-base
                     -- , regex-posix
                     , regex-tdfa
                     , split

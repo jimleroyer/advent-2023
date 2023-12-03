@@ -5,6 +5,7 @@ import Text.Regex.TDFA ((=~))
 
 filename = "./data/day01.txt"
 pack (a, b) = read $ show a ++ show b
+readInt :: (Num a, Read a) => [Char] -> a
 readInt word = case map toLower word of
     "one" -> 1
     "two" -> 2
