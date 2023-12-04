@@ -58,7 +58,7 @@ common warnings
     ghc-options: -Wall
 
 library
-    exposed-modules:  Day1, Day1s, Day2, Day2s
+    exposed-modules:  Day1, Day1s, Day2, Day2s, Day3
 
     -- Modules included in this library but not exported.
     -- other-modules:
