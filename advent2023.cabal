@@ -58,7 +58,7 @@ common warnings
     ghc-options: -Wall
 
 library
-    exposed-modules:  Day1, Day1s, Day2, Day2s, Day3
+    exposed-modules:  Day6q
 
     -- Modules included in this library but not exported.
     -- other-modules:
@@ -69,6 +69,7 @@ library
                     , base ^>=4.17.2.0
                     , bytestring
                     , containers
+                    , IntervalMap
                     , lens
                     -- , megaparsec
                     -- , monad-logger
