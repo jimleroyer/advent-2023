@@ -58,7 +58,7 @@ common warnings
     ghc-options: -Wall
 
 library
-    exposed-modules:  Day6q
+    exposed-modules:  Day8
 
     -- Modules included in this library but not exported.
     -- other-modules:
@@ -79,6 +79,7 @@ library
                     -- , regex-posix
                     , regex-tdfa
                     , split
+                    , unordered-containers
     hs-source-dirs:   src
     default-language: Haskell2010
 
