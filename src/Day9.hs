@@ -18,14 +18,14 @@ getDiffLayers topLayers bottomLayer
   | all (== 0) bottomLayer = topLayers ++ [bottomLayer]
   | otherwise = getDiffLayers (topLayers ++ [bottomLayer]) (difference bottomLayer)
 
-mkNextValue :: (Int -> Int -> Int) -> ([Int] -> Int) -> [Int] -> Int
-mkNextValue op position history = foldr1 op (map position (getDiffLayers [] history))
+mkValue :: (Int -> Int -> Int) -> ([Int] -> Int) -> [Int] -> Int
+mkValue op position history = foldr1 op (map position (getDiffLayers [] history))
 
 getNextValue :: [Int] -> Int
-getNextValue = mkNextValue (+) last
+getNextValue = mkValue (+) last
 
 getPrevValue :: [Int] -> Int
-getPrevValue = mkNextValue (-) head
+getPrevValue = mkValue (-) head
 
 main :: IO ()
 main = do
